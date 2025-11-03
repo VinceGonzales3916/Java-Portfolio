@@ -38,3 +38,37 @@ Main Class
               scanner.close();
           }
       }
+
+Item Class
+---
+      package MyShopPackage;
+      
+      public class Item {
+          private String name;
+          private String screenSize;
+          private String ram;
+          private String storage;
+          private String os;
+          private double price;
+      
+          public Item(String name, String screenSize, String ram, String storage, String os, double price) {
+              this.name = name;
+              this.screenSize = screenSize;
+              this.ram = ram;
+              this.storage = storage;
+              this.os = os;
+              this.price = price;
+          }
+      
+          public String getName() { return name; }
+          public double getPrice() { return price; }
+      
+          public void displaySpecs() {
+              System.out.println("\n--- " + name + " ---");
+              System.out.println("Screen Size: " + screenSize);
+              System.out.println("RAM: " + ram);
+              System.out.println("Storage: " + storage);
+              System.out.println("OS: " + os);
+              System.out.println("Price: ₱" + price);
+          }
+      }
