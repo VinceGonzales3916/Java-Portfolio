@@ -72,3 +72,88 @@ Item Class
               System.out.println("Price: ₱" + price);
           }
       }
+
+Cart Class
+---
+      package MyShopPackage;
+      
+      import java.util.ArrayList;
+      import java.util.Scanner;
+      
+      public class Cart {
+          private ArrayList<Item> cartItems = new ArrayList<>();
+          private Scanner scanner = new Scanner(System.in);
+      
+          public void addItem(Item item, int quantity) {
+              for (int i = 0; i < quantity; i++) {
+                  cartItems.add(item);
+              }
+              System.out.println(quantity + "x " + item.getName() + " added to cart!");
+          }
+      
+          public void showCart() {
+              if (cartItems.isEmpty()) {
+                  System.out.println("\nYour cart is empty.");
+                  return;
+              }
+      
+              double total = 0;
+              System.out.println("\n--- YOUR CART ---");
+              for (int i = 0; i < cartItems.size(); i++) {
+                  Item item = cartItems.get(i);
+                  System.out.println((i + 1) + ". " + item.getName() + " - ₱" + item.getPrice());
+                  total += item.getPrice();
+              }
+              System.out.println("Total: ₱" + total);
+      
+              System.out.print("\nDo you want to remove an item? (yes/no): ");
+              String response = scanner.nextLine();
+              if (response.equalsIgnoreCase("yes")) {
+                  removeFromCart();
+              }
+          }
+      
+          private void removeFromCart() {
+              System.out.print("Enter the item number to remove: ");
+              int index = scanner.nextInt();
+              scanner.nextLine();
+              if (index > 0 && index <= cartItems.size()) {
+                  Item removed = cartItems.remove(index - 1);
+                  System.out.println(removed.getName() + " removed from cart.");
+              } else {
+                  System.out.println("Invalid choice.");
+              }
+          }
+      
+          public double getTotal() {
+              double total = 0;
+              for (Item item : cartItems) {
+                  total += item.getPrice();
+              }
+              return total;
+          }
+      
+          public void checkout() {
+              if (cartItems.isEmpty()) {
+                  System.out.println("\nYour cart is empty!");
+                  return;
+              }
+      
+              double total = getTotal();
+              System.out.println("\nTotal amount due: ₱" + total);
+              System.out.print("Enter payment amount: ₱");
+              double payment = scanner.nextDouble();
+              scanner.nextLine();
+      
+              if (payment >= total) {
+                  System.out.println("Payment successful! Change: ₱" + (payment - total));
+                  cartItems.clear();
+              } else {
+                  System.out.println("Insufficient payment. Transaction cancelled.");
+              }
+          }
+      
+          public boolean isEmpty() {
+              return cartItems.isEmpty();
+          }
+      }
