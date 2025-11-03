@@ -5,13 +5,10 @@
 
 
 package MyJavaPackage; // package name
-
 import java.util.Scanner; // import Scanner for user input
-
 public class CanteenOrder {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in); // create Scanner for reading input
-
         // Variables grouped by type for cleaner code
         StringBuilder orderList = new StringBuilder(); // stores all ordered items for receipt
         String confirm, itemName, more, idType; // string variables for user input & descriptions
