@@ -126,3 +126,90 @@ Person Class
               System.out.println("Sex: " + sex);
           }
       }
+
+Teacher Class
+---
+      package MyObject;
+      
+      public class Teacher extends Person {
+          private String subject;
+      
+          public Teacher(String fn, String mn, String ln) {
+              super(fn, mn, ln);
+          }
+      
+          public String getSubject() { return subject; }
+          public void setSubject(String subject) { this.subject = subject; }
+      
+          @Override
+          public void displayInfo() {
+              System.out.println("Teacher: " + fullName());
+              System.out.println("Subject: " + subject);
+          }
+      }
+
+Student Class
+---
+      package MyObject;
+      
+      public class Student extends Person {
+          private int grade;
+      
+          // Constructor
+          public Student(String fn, String mn, String ln) {
+              super(fn, mn, ln);
+          }
+      
+          public int getGrade() { return grade; }
+          public void setGrade(int grade) { this.grade = grade; }
+      
+          @Override
+          public void displayInfo() {
+              System.out.println("Student: " + fullName());
+              System.out.println("Grade: " + grade);
+          }
+      }
+
+Section Class
+---
+      package MyObject;
+      
+      import java.util.ArrayList;
+      
+      public class Section {
+          private String name;
+          private Teacher adviser;
+          private ArrayList<Student> listStudent = new ArrayList<>();
+      
+          public String getName() { return name; }
+          public void setName(String name) { this.name = name; }
+          public Teacher getAdviser() { return adviser; }
+          public void setAdviser(Teacher adviser) { this.adviser = adviser; }
+          public ArrayList<Student> getListStudent() { return listStudent; }
+          public void setListStudent(ArrayList<Student> listStudent) { this.listStudent = listStudent; }
+      
+          public void addStudent(Student s) {
+              listStudent.add(s);
+          }
+      
+          public void removeStudent(int index) {
+              if (index >= 0 && index < listStudent.size()) {
+                  System.out.println(listStudent.get(index).fullName() + " removed from the section.");
+                  listStudent.remove(index);
+              } else {
+                  System.out.println("Invalid student index.");
+              }
+          }
+      
+          public void displaySection() {
+              System.out.println("\nSection: " + name);
+              System.out.print("Adviser: ");
+              adviser.displayInfo();
+              System.out.println("\nStudents:");
+              for (int i = 0; i < listStudent.size(); i++) {
+                  System.out.println((i + 1) + ".");
+                  listStudent.get(i).displayInfo(); // polymorphism
+                  System.out.println();
+              }
+          }
+      }
