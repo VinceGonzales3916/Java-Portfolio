@@ -1,5 +1,7 @@
 Classroom Organizer (Encapsulation, Polymorphism, Public and Private Class, Setter and Getter)
 ---
+This program demonstrates the use of object-oriented programming (OOP) concepts in Java by modeling a school section with a teacher and students. It uses encapsulation by declaring class fields as private and accessing them through getters and setters. Inheritance is implemented with a base Person class and derived classes Teacher and Student. Polymorphism is demonstrated through the overridden displayInfo() method, which behaves differently depending on whether the object is a Teacher or a Student. The program also allows dynamic object creation through user input, enabling the addition and removal of students in a section interactively.
+
 Main Class
 ---
 
