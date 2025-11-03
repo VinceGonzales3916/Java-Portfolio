@@ -28,7 +28,7 @@ Main Class
                   switch (choice) {
                       case 1 -> store.shop(cart);
                       case 2 -> cart.showCart();
-                      case 3 -> cart.checkout();
+                      case 3 -> cart.checkout(); // program exits after checkout
                       case 4 -> System.out.println("Thank you for visiting! Exiting program...");
                       default -> System.out.println("Invalid choice. Try again.");
                   }
@@ -60,15 +60,17 @@ Item Class
               this.price = price;
           }
       
+          // Getters
           public String getName() { return name; }
           public double getPrice() { return price; }
       
+          // Display full specs
           public void displaySpecs() {
               System.out.println("\n--- " + name + " ---");
               System.out.println("Screen Size: " + screenSize);
               System.out.println("RAM: " + ram);
               System.out.println("Storage: " + storage);
-              System.out.println("OS: " + os);
+              System.out.println("Operating System: " + os);
               System.out.println("Price: ₱" + price);
           }
       }
@@ -106,9 +108,9 @@ Cart Class
               }
               System.out.println("Total: ₱" + total);
       
-              System.out.print("\nDo you want to remove an item? (yes/no): ");
-              String response = scanner.nextLine();
-              if (response.equalsIgnoreCase("yes")) {
+              System.out.print("\nDo you want to remove an item? (y/n): ");
+              String response = scanner.nextLine().trim().toLowerCase();
+              if (response.equals("y")) {
                   removeFromCart();
               }
           }
@@ -141,6 +143,7 @@ Cart Class
       
               double total = getTotal();
               System.out.println("\nTotal amount due: ₱" + total);
+      
               System.out.print("Enter payment amount: ₱");
               double payment = scanner.nextDouble();
               scanner.nextLine();
@@ -148,6 +151,8 @@ Cart Class
               if (payment >= total) {
                   System.out.println("Payment successful! Change: ₱" + (payment - total));
                   cartItems.clear();
+                  System.out.println("Thank you for shopping! Exiting program...");
+                  System.exit(0); // Program exits after checkout
               } else {
                   System.out.println("Insufficient payment. Transaction cancelled.");
               }
@@ -194,10 +199,10 @@ Store
                   Item selected = storeItems.get(choice - 1);
                   selected.displaySpecs();
       
-                  System.out.print("\nDo you want to buy this item? (yes/no): ");
-                  String buy = scanner.nextLine();
+                  System.out.print("\nDo you want to buy this item? (y/n): ");
+                  String buy = scanner.nextLine().trim().toLowerCase();
       
-                  if (buy.equalsIgnoreCase("yes")) {
+                  if (buy.equals("y")) {
                       System.out.print("Enter quantity: ");
                       int qty = scanner.nextInt();
                       scanner.nextLine();
