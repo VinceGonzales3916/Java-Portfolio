@@ -5,7 +5,6 @@ This project is a console-based shopping system developed in Java that simulates
   package MyJavaPackage; // Defines the package name
   import java.util.ArrayList; // Imports ArrayList class
   import java.util.Scanner; // Imports Scanner class for input
-  
   // Define Item class
   class Item {
       String category; // Item category
