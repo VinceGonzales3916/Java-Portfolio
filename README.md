@@ -31,8 +31,8 @@ Some of the Java topics and projects included:
 
 ## 🧑‍💻 Author
 **Vince**  
-Student Developer | Java Programming Enthusiast  
-📧 [Optional: your email or portfolio link]
+Student Developer | Java Programming Student  
+📧 gonzalesrennielvincefajutina@gmail.com
 
 ---
 
