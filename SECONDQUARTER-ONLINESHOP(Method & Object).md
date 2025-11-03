@@ -157,3 +157,52 @@ Cart Class
               return cartItems.isEmpty();
           }
       }
+
+Store
+---
+      package MyShopPackage;
+      
+      import java.util.ArrayList;
+      import java.util.Scanner;
+      
+      public class Store {
+          private ArrayList<Item> storeItems = new ArrayList<>();
+          private Scanner scanner = new Scanner(System.in);
+      
+          public Store() {
+              // initialize store items
+              storeItems.add(new Item("Samsung Galaxy S24", "6.2-inch", "8GB", "256GB", "Android 14", 57990));
+              storeItems.add(new Item("iPhone 15", "6.1-inch", "6GB", "128GB", "iOS 17", 56990));
+              storeItems.add(new Item("Oppo Reno11", "6.7-inch", "12GB", "256GB", "Android 14", 24999));
+              storeItems.add(new Item("Vivo Y36", "6.64-inch", "8GB", "256GB", "Android 13", 12999));
+          }
+      
+          public void showItems() {
+              System.out.println("\n--- AVAILABLE ITEMS ---");
+              for (int i = 0; i < storeItems.size(); i++) {
+                  System.out.println((i + 1) + ". " + storeItems.get(i).getName() + " - ₱" + storeItems.get(i).getPrice());
+              }
+          }
+      
+          public void shop(Cart cart) {
+              showItems();
+              System.out.print("\nEnter item number to view specs or 0 to go back: ");
+              int choice = scanner.nextInt();
+              scanner.nextLine();
+      
+              if (choice > 0 && choice <= storeItems.size()) {
+                  Item selected = storeItems.get(choice - 1);
+                  selected.displaySpecs();
+      
+                  System.out.print("\nDo you want to buy this item? (yes/no): ");
+                  String buy = scanner.nextLine();
+      
+                  if (buy.equalsIgnoreCase("yes")) {
+                      System.out.print("Enter quantity: ");
+                      int qty = scanner.nextInt();
+                      scanner.nextLine();
+                      cart.addItem(selected, qty);
+                  }
+              }
+          }
+      }
