@@ -150,5 +150,5 @@ This program is a simple canteen ordering system designed to let users order foo
         System.out.printf("Change: ₱%.2f\n", change);
 
         input.close(); // close scanner
+     }
     }
-}
