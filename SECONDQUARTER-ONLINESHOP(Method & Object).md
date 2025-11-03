@@ -163,7 +163,7 @@ Cart Class
           }
       }
 
-Store
+Store Class
 ---
       package MyShopPackage;
       
