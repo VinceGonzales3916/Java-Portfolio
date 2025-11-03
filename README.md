@@ -26,7 +26,7 @@ Some of the Java topics and projects included:
 
 ## ⚙️ Tools & Technologies
 - **Language:** Java  
-- **IDE:** NetBeans / IntelliJ IDEA / Eclipse (depending on the project)  
+- **IDE:** Eclipse
 - **Version Control:** Git & GitHub  
 
 ## 🧑‍💻 Author
