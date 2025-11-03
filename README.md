@@ -33,6 +33,7 @@ Some of the Java topics and projects included:
 **Vince**  
 Student Developer | Java Programming Student  
 📧 gonzalesrennielvincefajutina@gmail.com
+📧 https://www.canva.com/design/DAG3p0fX1C0/tcQ962KCgS1BWJIGfS26YA/view
 
 ---
 
