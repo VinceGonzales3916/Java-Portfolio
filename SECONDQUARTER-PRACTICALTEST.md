@@ -96,3 +96,140 @@ Main Class
 
 Person Class
 ---
+      package MyObject;
+      
+      // Base class representing a person (parent class)
+      public class Person {
+          // Private attributes for encapsulation
+          private String firstName;
+          private String middleName;
+          private String lastName;
+      
+          // Constructors
+          public Person() {}
+          public Person(String fn, String mn, String ln) {
+              this.firstName = fn;
+              this.middleName = mn;
+              this.lastName = ln;
+          }
+      
+          // Getters and Setters (Encapsulation)
+          public String getFirstName() { return firstName; }
+          public void setFirstName(String firstName) { this.firstName = firstName; }
+      
+          public String getMiddleName() { return middleName; }
+          public void setMiddleName(String middleName) { this.middleName = middleName; }
+      
+          public String getLastName() { return lastName; }
+          public void setLastName(String lastName) { this.lastName = lastName; }
+      
+          // Returns the full name
+          public String fullName() {
+              return firstName + " " + middleName + " " + lastName;
+          }
+      
+          // Method to be overridden (demonstrates polymorphism)
+          public void work() {
+              System.out.println(fullName() + " is working.");
+          }
+      }
+
+Owner Class
+---
+      package MyObject;
+      
+      // Child class that inherits from Person
+      public class Owner extends Person {
+          private String businessStyle;
+      
+          // Constructor
+          public Owner(String fn, String mn, String ln) {
+              super(fn, mn, ln);
+          }
+      
+          // Getter and Setter for business style
+          public String getBusinessStyle() { return businessStyle; }
+          public void setBusinessStyle(String businessStyle) { this.businessStyle = businessStyle; }
+      
+          // Overridden method demonstrating polymorphism
+          @Override
+          public void work() {
+              System.out.println(fullName() + " is overseeing business operations in the " + businessStyle + " industry.");
+          }
+      }
+
+Manager Class
+---
+      package MyObject;
+      
+      // Child class inheriting from Person
+      public class Manager extends Person {
+          private String department;
+      
+          // Constructor
+          public Manager(String fn, String mn, String ln) {
+              super(fn, mn, ln);
+          }
+      
+          // Getter and Setter
+          public String getDepartment() { return department; }
+          public void setDepartment(String department) { this.department = department; }
+      
+          // Overridden method (Polymorphism)
+          @Override
+          public void work() {
+              System.out.println(fullName() + " is managing the " + department + " department.");
+          }
+      }
+
+Staff Class
+---
+      package MyObject;
+      
+      // Child class inheriting from Person
+      public class Staff extends Person {
+          private String position;
+      
+          // Constructor
+          public Staff(String fn, String mn, String ln, String position) {
+              super(fn, mn, ln);
+              this.position = position;
+          }
+      
+          // Getter and Setter
+          public String getPosition() { return position; }
+          public void setPosition(String position) { this.position = position; }
+      
+          // Overridden method (Polymorphism)
+          @Override
+          public void work() {
+              System.out.println(fullName() + " is performing duties as a " + position + ".");
+          }
+      }
+
+Business Class
+---
+      package MyObject;
+      
+      import java.util.ArrayList;
+      
+      // Represents the Business entity
+      public class Business {
+          private String name; // Business name
+          private Owner owner; // Business owner
+          private Manager manager; // Business manager
+          private ArrayList<Staff> listStaff; // List of staff
+      
+          // Getters and Setters (Encapsulation)
+          public String getName() { return name; }
+          public void setName(String name) { this.name = name; }
+      
+          public Owner getOwner() { return owner; }
+          public void setOwner(Owner owner) { this.owner = owner; }
+      
+          public Manager getManager() { return manager; }
+          public void setManager(Manager manager) { this.manager = manager; }
+      
+          public ArrayList<Staff> getListStaff() { return listStaff; }
+          public void setListStaff(ArrayList<Staff> listStaff) { this.listStaff = listStaff; }
+      }
